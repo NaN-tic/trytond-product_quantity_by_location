@@ -1,0 +1,55 @@
+# 
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "field:product.quantity.by.location,create_date:"
+msgid "Create Date"
+msgstr "Fecha de creación"
+
+msgctxt "field:product.quantity.by.location,create_uid:"
+msgid "Create User"
+msgstr "Usuario de creación"
+
+msgctxt "field:product.quantity.by.location,id:"
+msgid "ID"
+msgstr "Identificador"
+
+msgctxt "field:product.quantity.by.location,location:"
+msgid "Location"
+msgstr "Ubicación"
+
+msgctxt "field:product.quantity.by.location,product:"
+msgid "Product"
+msgstr "Producto"
+
+msgctxt "field:product.quantity.by.location,quantity:"
+msgid "Quantity"
+msgstr "Cantidad"
+
+msgctxt "field:product.quantity.by.location,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:product.quantity.by.location,write_date:"
+msgid "Write Date"
+msgstr "Fecha modificación"
+
+msgctxt "field:product.quantity.by.location,write_uid:"
+msgid "Write User"
+msgstr "Usuario modificación"
+
+msgctxt "model:ir.action,name:act_product_quantity_by_location"
+msgid "Product Quantity By Location"
+msgstr "Cantidad de producto por ubicación"
+
+msgctxt "model:ir.ui.menu,name:menu_product_quantity_by_location"
+msgid "Product Quantity By Location"
+msgstr "Cantidad de producto por ubicación"
+
+msgctxt "model:product.quantity.by.location,name:"
+msgid "Product Quantity By Location"
+msgstr "Cantidad de producto por ubicación"
+
+msgctxt "view:product.quantity.by.location:"
+msgid "Product Quantities By Location"
+msgstr "Cantidad de productos por ubicación"
