@@ -12,7 +12,7 @@ msgstr "Usuari creació"
 
 msgctxt "field:product.quantity.by.location,id:"
 msgid "ID"
-msgstr "Identificador"
+msgstr "ID"
 
 msgctxt "field:product.quantity.by.location,location:"
 msgid "Location"
@@ -44,7 +44,7 @@ msgstr "Quantitat de producte per ubicació"
 
 msgctxt "model:ir.ui.menu,name:menu_product_quantity_by_location"
 msgid "Product Quantity By Location"
-msgstr "Quantitat de producte per ubicació"
+msgstr "Quantitat de producte/ubicació"
 
 msgctxt "model:product.quantity.by.location,name:"
 msgid "Product Quantity By Location"

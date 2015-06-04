@@ -4,15 +4,15 @@ msgstr "Content-Type: text/plain; charset=utf-8\n"
 
 msgctxt "field:product.quantity.by.location,create_date:"
 msgid "Create Date"
-msgstr "Fecha de creación"
+msgstr "Fecha creación"
 
 msgctxt "field:product.quantity.by.location,create_uid:"
 msgid "Create User"
-msgstr "Usuario de creación"
+msgstr "Usuario creación"
 
 msgctxt "field:product.quantity.by.location,id:"
 msgid "ID"
-msgstr "Identificador"
+msgstr "ID"
 
 msgctxt "field:product.quantity.by.location,location:"
 msgid "Location"
@@ -44,7 +44,7 @@ msgstr "Cantidad de producto por ubicación"
 
 msgctxt "model:ir.ui.menu,name:menu_product_quantity_by_location"
 msgid "Product Quantity By Location"
-msgstr "Cantidad de producto por ubicación"
+msgstr "Cantidad de producto/ubicación"
 
 msgctxt "model:product.quantity.by.location,name:"
 msgid "Product Quantity By Location"
