@@ -13,7 +13,9 @@ FROM (
         SUM("b"."internal_quantity") AS "quantity",
         "b"."product" AS "product"
     FROM
-        "stock_move" AS "b"
+            "stock_move" AS "b"
+        LEFT JOIN
+            "stock_location" AS "c" ON "b"."to_location" = "c"."id"
     WHERE
         (
             (
@@ -77,7 +79,7 @@ FROM (
                 )
             )
         AND
-            True
+             "c"."type" NOT IN ('supplier', 'customer')
         )
     GROUP BY
         "b"."to_location",
@@ -88,7 +90,9 @@ UNION ALL
         (- SUM("b"."internal_quantity")) AS "quantity",
         "b"."product" AS "product"
     FROM
-        "stock_move" AS "b"
+            "stock_move" AS "b"
+        LEFT JOIN
+            "stock_location" AS "c" ON "b"."from_location" = "c"."id"
     WHERE
         (
             (
@@ -152,7 +156,7 @@ UNION ALL
                 )
             )
         AND
-            True
+             "c"."type" NOT IN ('supplier', 'customer')
         )
     GROUP BY
         "b"."from_location",
@@ -163,7 +167,9 @@ UNION ALL
         "e"."internal_quantity" AS "quantity",
         "e"."product" AS "product"
     FROM
-        "stock_period_cache" AS "e"
+            "stock_period_cache" AS "e"
+        LEFT JOIN
+            "stock_location" AS "c" ON "e"."location" = "c"."id"
     WHERE
         (
             (
@@ -183,7 +189,7 @@ UNION ALL
                 True
             )
         AND
-            True
+             "c"."type" NOT IN ('supplier', 'customer')
         )
     ) AS "a"
 GROUP BY
