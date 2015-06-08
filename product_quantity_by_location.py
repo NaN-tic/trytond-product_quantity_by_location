@@ -33,3 +33,7 @@ class ProductQuantityByLocation(ModelSQL, ModelView):
         table = Table(cls._table)
         query = table.select()
         return query
+
+    @classmethod
+    def search_rec_name(cls, name, clause):
+        return [('product.rec_name',) + tuple(clause[1:])]
