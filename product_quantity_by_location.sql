@@ -75,7 +75,11 @@ FROM
                     FROM "stock_location" AS "c"
                     WHERE
                         (
-                            ("c"."type" = 'storage')
+                            (
+                                ("c"."type" = 'storage')
+                            OR
+                                ("c"."type" = 'lost_found')
+                            )
                         AND
                             ("c"."active" = True)
                         )
@@ -150,7 +154,11 @@ UNION ALL
                 FROM "stock_location" AS "c"
                 WHERE
                     (
-                        ("c"."type" = 'storage')
+                        (
+                            ("c"."type" = 'storage')
+                        OR
+                            ("c"."type" = 'lost_found')
+                        )
                     AND
                         ("c"."active" = True)
                     )
@@ -185,7 +193,11 @@ UNION ALL
                 FROM "stock_location" AS "c"
                 WHERE
                     (
-                        ("c"."type" = 'storage')
+                        (
+                            ("c"."type" = 'storage')
+                        OR
+                            ("c"."type" = 'lost_found')
+                        )
                     AND
                         ("c"."active" = True)
                     )
