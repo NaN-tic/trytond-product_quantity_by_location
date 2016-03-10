@@ -20,7 +20,7 @@ class ProductQuantityByLocation(ModelSQL, ModelView):
     @classmethod
     def __register__(cls, module_name):
         transaction = Transaction()
-        cursor = transaction.cursor
+        cursor = transaction.connection.cursor()
         super(ProductQuantityByLocation, cls).__register__(module_name)
         query = (path.dirname(path.realpath(__file__)) +
             '/%s.sql' % cls._table)
