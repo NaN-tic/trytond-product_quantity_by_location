@@ -4,6 +4,7 @@ from os import path
 from sql import Table
 from trytond.model import ModelView, ModelSQL, fields
 from trytond.transaction import Transaction
+from trytond.config import config, parse_uri
 
 
 __all__ = ['ProductQuantityByLocation']
@@ -21,12 +22,16 @@ class ProductQuantityByLocation(ModelSQL, ModelView):
     def __register__(cls, module_name):
         transaction = Transaction()
         cursor = transaction.cursor
+        uri = parse_uri(config.get('database', 'uri'))
+
         super(ProductQuantityByLocation, cls).__register__(module_name)
-        query = (path.dirname(path.realpath(__file__)) +
-            '/%s.sql' % cls._table)
-        query = open(query, 'r').read()
-        cursor.execute(
-            'CREATE OR REPLACE VIEW %s AS (%s)' % (cls._table, query))
+
+        if uri.scheme == 'postgresql':
+            query = (path.dirname(path.realpath(__file__)) +
+                '/%s.sql' % cls._table)
+            query = open(query, 'r').read()
+            cursor.execute(
+                'CREATE OR REPLACE VIEW %s AS (%s)' % (cls._table, query))
 
     @classmethod
     def table_query(cls):
