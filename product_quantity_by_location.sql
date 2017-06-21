@@ -1,5 +1,5 @@
 SELECT
-    "a"."location" * 10000 + "a"."product" AS "id",
+    "a"."location" * 100000 + "a"."product" AS "id",
     0 AS "create_uid",
     (SELECT CURRENT_DATE)::TIMESTAMP WITHOUT TIME ZONE AS "create_date",
     NULL::INTEGER AS "write_uid",
