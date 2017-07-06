@@ -7,4 +7,8 @@ from .product_quantity_by_location import *
 def register():
     Pool.register(
         ProductQuantityByLocation,
+        ProductQuantityByLocationValues,
         module='product_quantity_by_location', type_='model')
+    Pool.register(
+        ProductQuantityByLocationStart,
+        module='product_quantity_by_location', type_='wizard')

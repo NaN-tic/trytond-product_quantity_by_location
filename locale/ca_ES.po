@@ -10,27 +10,27 @@ msgctxt "field:product.quantity.by.location,create_uid:"
 msgid "Create User"
 msgstr "Usuari creació"
 
-msgctxt "field:product.quantity.by.location,id:"
+msgctxt "field:product.quantity.by.location.values,id:"
 msgid "ID"
 msgstr "ID"
 
-msgctxt "field:product.quantity.by.location,location:"
+msgctxt "field:product.quantity.by.location.values,location:"
 msgid "Location"
 msgstr "Ubicació"
 
-msgctxt "field:product.quantity.by.location,product:"
+msgctxt "field:product.quantity.by.location.values,product:"
 msgid "Product"
 msgstr "Producte"
 
-msgctxt "field:product.quantity.by.location,quantity:"
+msgctxt "field:product.quantity.by.location.values,quantity:"
 msgid "Quantity"
 msgstr "Quantitat"
 
-msgctxt "field:product.quantity.by.location,rec_name:"
+msgctxt "field:product.quantity.by.location.values,rec_name:"
 msgid "Name"
 msgstr "Nom"
 
-msgctxt "field:product.quantity.by.location,write_date:"
+msgctxt "field:product.quantity.by.location.values,write_date:"
 msgid "Write Date"
 msgstr "Data modificació"
 
@@ -42,14 +42,22 @@ msgctxt "model:ir.action,name:act_product_quantity_by_location"
 msgid "Product Quantity By Location"
 msgstr "Quantitat de producte per ubicació"
 
-msgctxt "model:ir.ui.menu,name:menu_product_quantity_by_location"
-msgid "Product Quantity By Location"
-msgstr "Quantitat de producte/ubicació"
-
 msgctxt "model:product.quantity.by.location,name:"
 msgid "Product Quantity By Location"
 msgstr "Quantitat de producte per ubicació"
 
 msgctxt "view:product.quantity.by.location:"
+msgid "Product Quantities By Location"
+msgstr "Quantitats de producte per ubicació"
+
+msgctxt "model:ir.action,name:act_product_quantity_by_location_values"
+msgid "Product Quantity By Location"
+msgstr "Quantitat de producte per ubicació"
+
+msgctxt "model:product.quantity.by.location_values,name:"
+msgid "Product Quantity By Location"
+msgstr "Quantitat de producte per ubicació"
+
+msgctxt "view:product.quantity.by.location_values:"
 msgid "Product Quantities By Location"
 msgstr "Quantitats de producte per ubicació"

@@ -2,13 +2,12 @@
 <!-- The COPYRIGHT file at the top level of this repository contains the full
 copyright notices and license terms. -->
 <tryton>
-    <data>
+    <data>        
         <record model="ir.ui.view" id="product_quantity_by_location_view_list">
             <field name="model">product.quantity.by.location</field>
-            <field name="type">tree</field>
+            <field name="type">form</field>
             <field name="name">product_quantity_by_location_list</field>
         </record>
-
         <record model="ir.action.act_window" id="act_product_quantity_by_location">
             <field name="name">Product Quantity By Location</field>
             <field name="res_model">product.quantity.by.location</field>
@@ -18,11 +17,37 @@ copyright notices and license terms. -->
             <field name="view" ref="product_quantity_by_location_view_list"/>
             <field name="act_window" ref="act_product_quantity_by_location"/>
         </record>
-        <menuitem
-            id="menu_product_quantity_by_location"
-            parent="product.menu_main_product"
-            sequence="10"
-            action="act_product_quantity_by_location"/>
 
+        <record model="ir.ui.view" id="product_quantity_by_location_view_list_values">
+            <field name="model">product.quantity.by.location.values</field>
+            <field name="type">tree</field>
+            <field name="name">product_quantity_by_location_list_values</field>
+        </record>
+
+        <record model="ir.action.act_window" id="act_product_quantity_by_location_values">
+            <field name="name">Product Quantity By Location</field>
+            <field name="res_model">product.quantity.by.location.values</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_product_quantity_by_location_view_list_values">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="product_quantity_by_location_view_list_values"/>
+            <field name="act_window" ref="act_product_quantity_by_location_values"/>
+        </record>
+        <record model="ir.action.act_window" id="act_wizard_product_quantity_by_location">
+            <field name="name">Product Quantities</field>
+            <field name="res_model">product.quantity.by.location.start</field>
+            <field name="search_value"
+                eval="[('product', '=', Eval('active_id'))]"
+                pyson="1"/>
+        </record>
+        <record model="ir.action.wizard" id="act_wiz_prod_quantityt">
+            <field name="name">Product Quantity By Location</field>
+            <field name="wiz_name">product.quantity.by.location.start</field>
+        </record>
+        <record model="ir.action.keyword" id="act_keyword_wiz_product_quantity_by_location">
+            <field name="keyword">form_relate</field>
+            <field name="model">product.product,-1</field>
+            <field name="action" ref="act_wiz_prod_quantityt"/>
+        </record>
     </data>
 </tryton>
