@@ -58,7 +58,8 @@ class ProductQuantityByLocationStart(Wizard):
 
         transaction = Transaction()
         product_ids = transaction.context.get('active_ids')
-        if product_ids[0].__class__.__name__ == 'product.template':
+        active_model = transaction.context.get('active_model')
+        if active_model == 'product.template':
             new_product_ids = []
             for template in product_ids:
                 variants = Template(template).products
