@@ -2,7 +2,7 @@
 <!-- The COPYRIGHT file at the top level of this repository contains the full
 copyright notices and license terms. -->
 <tryton>
-    <data>        
+    <data>
         <record model="ir.ui.view" id="product_quantity_by_location_view_list">
             <field name="model">product.quantity.by.location</field>
             <field name="type">form</field>
@@ -47,6 +47,11 @@ copyright notices and license terms. -->
         <record model="ir.action.keyword" id="act_keyword_wiz_product_quantity_by_location">
             <field name="keyword">form_relate</field>
             <field name="model">product.product,-1</field>
+            <field name="action" ref="act_wiz_prod_quantityt"/>
+        </record>
+        <record model="ir.action.keyword" id="act_keyword_wiz_product_quantity_by_location_template">
+            <field name="keyword">form_relate</field>
+            <field name="model">product.template,-1</field>
             <field name="action" ref="act_wiz_prod_quantityt"/>
         </record>
     </data>

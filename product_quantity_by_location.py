@@ -52,11 +52,20 @@ class ProductQuantityByLocationStart(Wizard):
     def default_start(self, fields):
         pool = Pool()
         Product = pool.get('product.product')
+        Template = pool.get('product.template')
         Location = pool.get('stock.location')
         ProductLocation = pool.get('product.quantity.by.location.values')
 
         transaction = Transaction()
-        product_id = transaction.context.get('active_id')
+        product_ids = transaction.context.get('active_ids')
+        active_model = transaction.context.get('active_model')
+        if active_model == 'product.template':
+            new_product_ids = []
+            for template in product_ids:
+                variants = Template(template).products
+                new_product_ids += [variant.id for variant in variants]
+            product_ids = new_product_ids
+
         cursor = transaction.cursor
 
         uri = parse_uri(config.get('database', 'uri'))
@@ -70,8 +79,8 @@ class ProductQuantityByLocationStart(Wizard):
             cursor.execute('''
                 SELECT *
                     FROM (%s) AS foo
-                    WHERE foo.product = %s''' %
-                (query, product_id))
+                    WHERE foo.product in (%s)''' %
+                (query, ','.join(map(str, product_ids))))
             for value in cursor.fetchall():
                 id, _, _, _, _, location_id, product_id, quantity = value
 
