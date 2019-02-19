@@ -1,7 +1,7 @@
 # The COPYRIGHT file at the top level of this repository contains the full
 # copyright notices and license terms.
 from os import path
-from trytond.model import ModelView, ModelSQL, fields
+from trytond.model import ModelView, fields
 from trytond.wizard import Wizard, StateView, Button
 from trytond.transaction import Transaction
 from trytond.config import config, parse_uri
@@ -18,15 +18,20 @@ class ProductQuantityByLocationValues(ModelView):
     location = fields.Many2One('stock.location', 'Location')
     product = fields.Many2One('product.product', 'Product')
     quantity = fields.Float('Quantity')
+    quantity_estimed = fields.Float('Quantity Estimed')
+    quantity_available = fields.Float('Quantity Available')
 
     @classmethod
-    def set_values(cls, location, product, quantity):
+    def set_values(cls, location, product, quantity,
+        quantity_estimed, quantity_available):
         return {
             'product': product.id,
             'product.rec_name': product.rec_name,
             'location': location.id,
             'location.rec_name': location.rec_name,
             'quantity': quantity,
+            'quantity_estimed': quantity_estimed,
+            'quantity_available': quantity_available,
             }
 
 
@@ -79,9 +84,9 @@ class ProductQuantityByLocationStart(Wizard):
                     WHERE foo.product in (%s)''' %
                 (query, ','.join(map(str, product_ids))))
             for value in cursor.fetchall():
-                id, _, _, _, _, location_id, product_id, quantity = value
+                id, _, _, _, _, location_id, product_id, quantity, quantity_estimed, quantity_available = value
                 res.append(ProductLocation.set_values(Location(location_id),
-                    Product(product_id), quantity))
+                    Product(product_id), quantity, quantity_estimed, quantity_available))
         return {
             'prod_loc_tree': res
         }

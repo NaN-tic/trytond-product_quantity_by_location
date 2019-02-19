@@ -6,11 +6,15 @@ SELECT
     NULL::TIMESTAMP WITHOUT TIME ZONE AS "write_date",
     "a"."location" AS "location",
     "a"."product" AS "product",
-    SUM("a"."quantity") AS "quantity"
+    SUM("a"."quantity_estimed") AS "quantity",
+    SUM("a"."quantity") AS "quantity_estimed",
+    SUM("a"."quantity_estimed" + "a"."quantity_available") AS "quantity_available"
 FROM (
     SELECT
         "b"."to_location" AS "location",
         SUM("b"."internal_quantity") AS "quantity",
+        sum(CASE WHEN "b"."state" = 'done' THEN "b"."internal_quantity" ELSE 0 END) AS "quantity_estimed",
+        sum(0) AS "quantity_available",
         "b"."product" AS "product"
     FROM
             "stock_move" AS "b"
@@ -88,6 +92,8 @@ UNION ALL
     SELECT
         "b"."from_location" AS "location",
         (- SUM("b"."internal_quantity")) AS "quantity",
+        sum(- CASE WHEN "b"."state" like 'done' THEN "b"."internal_quantity" ELSE 0 END) AS "quantity_estimed",
+        sum(- CASE WHEN "b"."state" not like 'done' THEN quantity ELSE 0 END) AS "quantity_available",
         "b"."product" AS "product"
     FROM
             "stock_move" AS "b"
@@ -165,6 +171,8 @@ UNION ALL
     SELECT
         "e"."location" AS "location",
         "e"."internal_quantity" AS "quantity",
+        "e"."internal_quantity" AS "quantity_estimed",
+        "e"."internal_quantity" AS "quantity_available",
         "e"."product" AS "product"
     FROM
             "stock_period_cache" AS "e"
@@ -189,7 +197,7 @@ UNION ALL
                 True
             )
         AND
-             "c"."type" NOT IN ('supplier', 'customer')
+             "c"."type" IN ('storage')
         )
     ) AS "a"
 GROUP BY
