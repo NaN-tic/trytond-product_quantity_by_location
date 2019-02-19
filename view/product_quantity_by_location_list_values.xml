@@ -5,4 +5,6 @@ copyright notices and license terms. -->
     <field name="location"/>
     <field name="product"/>
     <field name="quantity"/>
+    <field name="quantity_estimed"/>
+    <field name="quantity_available"/>
 </tree>

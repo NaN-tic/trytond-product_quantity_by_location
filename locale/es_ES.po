@@ -1,14 +1,14 @@
-# 
+#
 msgid ""
 msgstr "Content-Type: text/plain; charset=utf-8\n"
 
 msgctxt "field:product.quantity.by.location.values,create_date:"
 msgid "Create Date"
-msgstr "Fecha creación"
+msgstr "Fecha de creación"
 
 msgctxt "field:product.quantity.by.location.values,create_uid:"
 msgid "Create User"
-msgstr "Usuario creación"
+msgstr "Usuario de creación"
 
 msgctxt "field:product.quantity.by.location.values,id:"
 msgid "ID"
@@ -26,17 +26,25 @@ msgctxt "field:product.quantity.by.location.values,quantity:"
 msgid "Quantity"
 msgstr "Cantidad"
 
+msgctxt "field:product.quantity.by.location.values,quantity_estimed:"
+msgid "Quantity Estimed"
+msgstr "Cantidad estimada"
+
+msgctxt "field:product.quantity.by.location.values,quantity_available:"
+msgid "Quantity Available"
+msgstr "Cantidad disponible"
+
 msgctxt "field:product.quantity.by.location.values,rec_name:"
 msgid "Name"
 msgstr "Nombre"
 
 msgctxt "field:product.quantity.by.location.values,write_date:"
 msgid "Write Date"
-msgstr "Fecha modificación"
+msgstr "Fecha de modificación"
 
 msgctxt "field:product.quantity.by.location.values,write_uid:"
 msgid "Write User"
-msgstr "Usuario modificación"
+msgstr "Usuario de modificación"
 
 msgctxt "model:ir.action,name:act_wiz_prod_quantityt"
 msgid "Product Quantity By Location"
