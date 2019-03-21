@@ -67,4 +67,5 @@ GROUP BY
     a.location,
     a.product
 HAVING
-    SUM(a.quantity) <> 0
+    SUM(a.quantity) <> 0 or
+    SUM(a.quantity_estimed) <> 0
