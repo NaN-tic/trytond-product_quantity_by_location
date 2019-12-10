@@ -1,5 +1,5 @@
 SELECT
-    a.location * 100000 + a.product AS id,
+    CAST(a.location AS BIGINT) * 100000 + CAST(a.product AS BIGINT) AS id,
     0 AS create_uid,
     now()::TIMESTAMP WITHOUT TIME ZONE AS create_date,
     NULL::INTEGER AS write_uid,
